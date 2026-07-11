@@ -1,0 +1,844 @@
+/* ==========================================================================
+   CSS Variables & Reset
+   ========================================================================== */
+   :root {
+    /* Color Palette */
+    --primary-blue: #0A192F;
+    --secondary-blue: #112240;
+    --accent-blue: #233554;
+    --highlight-blue: #64FFDA;
+    --gold: #D4AF37;
+    --gold-light: #F1D570;
+    
+    --text-dark: #333333;
+    --text-light: #F8F9FA;
+    --text-muted: #8892B0;
+    
+    --bg-light: #F4F7F6;
+    --bg-white: #FFFFFF;
+    --bg-dark: #0A192F;
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Transitions & Shadows */
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light { background-color: var(--bg-light); }
+.bg-dark { background-color: var(--bg-dark); }
+.text-white { color: var(--text-light); }
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.mb-5 { margin-bottom: 3rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+.center { text-align: center; }
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+.top-header {
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+    padding: 20px 0;
+    border-bottom: 3px solid var(--primary-blue);
+    position: relative;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.college-logo-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    background: var(--bg-white);
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    padding: 5px;
+}
+
+.college-info {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.college-info h1 {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.college-info h1 span {
+    font-weight: 800;
+}
+
+.college-info .autonomous {
+    font-size: 1.2rem;
+    color: var(--gold);
+}
+
+.accreditation {
+    font-weight: 600;
+    color: var(--accent-blue);
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.excellence {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.location {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.anniversary-badge-img {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.dept-badge {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--primary-blue);
+    padding: 15px 120px;
+    border-radius: 40px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+.duration-badge {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.conf-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    max-width: 900px;
+    margin: 0 auto 15px;
+    color: var(--text-light);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.conf-abbr {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.event-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.meta-item i {
+    color: var(--gold);
+    font-size: 1.3rem;
+}
+
+.hurry-bubble {
+    display: inline-block;
+    background: #ff4757;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4);
+    animation: pulseBubble 1.5s infinite;
+    vertical-align: middle;
+}
+
+@keyframes pulseBubble {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+}
+
+/* ==========================================================================
+   Personalities Section
+   ========================================================================== */
+.section-badge {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--text-light);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-badge::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--gold);
+}
+
+.section-title-wrapper {
+    text-align: center;
+}
+
+.person-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--gold);
+    box-shadow: var(--shadow-lg);
+}
+
+.person-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.person-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.person-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 4px solid var(--gold);
+    box-shadow: var(--shadow-sm);
+}
+
+.person-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.keynote-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.featured-person {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 30px;
+    max-width: 600px;
+}
+
+.featured-person .person-image {
+    margin: 0;
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+}
+
+/* ==========================================================================
+   About Sections
+   ========================================================================== */
+.about-box {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--primary-blue);
+}
+
+.box-header {
+    background: var(--primary-blue);
+    color: var(--text-light);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.box-header i {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.box-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.box-body {
+    padding: 25px;
+}
+
+.box-body p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.box-body p:last-child {
+    margin-bottom: 0;
+}
+
+.flex-row-layout {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.flex-row-layout .text-content {
+    flex: 1;
+}
+
+.flex-row-layout .side-image {
+    flex: 0 0 300px;
+}
+
+.side-image img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.college-graphic,
+.tech-graphic {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.about-images img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.about-images img:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Information Section (Dark)
+   ========================================================================== */
+.info-card {
+    background: var(--secondary-blue);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.info-card .card-header {
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid var(--gold);
+}
+
+.info-card .card-header i {
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+
+.info-card .card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.date-list, .fee-list, .guidelines-list {
+    list-style: none;
+    padding: 20px;
+}
+
+.date-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.date-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.icon-wrap {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--highlight-blue);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.date-info span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.date-info strong {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.fee-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.03);
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+}
+
+.fee-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fee-type i {
+    color: var(--gold);
+}
+
+.fee-amount {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--highlight-blue);
+}
+
+.registration-qr {
+    padding: 0 20px 20px;
+    text-align: center;
+}
+
+.registration-qr p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.qr-placeholder-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    background: var(--bg-white);
+    margin: 0 auto;
+    border-radius: var(--radius-sm);
+    padding: 5px;
+    display: block;
+}
+
+.list-bullet li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+.list-bullet li::before {
+    content: '\f101';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.guidelines-list li strong {
+    color: var(--highlight-blue);
+}
+
+/* ==========================================================================
+   Tracks Section
+   ========================================================================== */
+.section-title {
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.track-item {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 15px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.track-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--gold);
+}
+
+.track-item i {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    background: var(--bg-light);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.track-item:hover i {
+    background: var(--primary-blue);
+    color: var(--gold);
+}
+
+.track-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--primary-blue);
+}
+
+.track-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Submission Section
+   ========================================================================== */
+.dark-card {
+    background: var(--primary-blue);
+    color: var(--text-light);
+}
+
+.dark-card .list-bullet li::before {
+    color: var(--highlight-blue);
+}
+
+.dark-card strong {
+    color: var(--gold);
+}
+
+.contact-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.qr-large-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    background: var(--bg-white);
+    margin: 20px auto 0;
+    border-radius: var(--radius-md);
+    padding: 10px;
+    display: block;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+    background: var(--primary-blue);
+    color: var(--text-light);
+    padding: 40px 0;
+    border-top: 4px solid var(--gold);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: var(--bg-white);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.footer-college-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.footer-college-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.footer-tagline {
+    font-style: italic;
+    color: var(--highlight-blue);
+}
+
+.footer-badge-img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 992px) {
+    .flex-row-layout {
+        flex-direction: column;
+    }
+    
+    .flex-row-layout .side-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .anniversary-box {
+        margin-top: 15px;
+    }
+    
+    .conf-abbr {
+        font-size: 2.5rem;
+    }
+    
+    .conf-title {
+        font-size: 1.5rem;
+    }
+    
+    .event-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .featured-person {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .college-info h1 {
+        font-size: 1.2rem;
+    }
+    
+    .tracks-grid {
+        grid-template-columns: 1fr;
+    }
+}
