@@ -118,6 +118,8 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    padding: 0 40px;
+    width: 100%;
 }
 
 .college-logo-img {
@@ -840,5 +842,179 @@ img {
     
     .tracks-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+.fee-note {
+    padding: 0 20px 20px;
+    text-align: center;
+    color: var(--highlight-blue);
+    font-size: 0.95rem;
+}
+
+/* Advisory Inner Grid Layout */
+.advisory-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    text-align: left;
+}
+
+.advisory-item {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+}
+
+.advisory-item:nth-child(odd) {
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+
+.advisory-item:nth-child(even) {
+    padding-left: 10px;
+}
+
+.advisory-item h4 {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.advisory-item p {
+    color: #333;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Committees Single Card */
+.committee-single-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.committee-single-card .role-title {
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+
+.committee-single-card .role-title:first-child {
+    margin-top: 0;
+}
+
+.committee-single-card h4 {
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.committee-single-card .sub-role {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* Reduced Resource Persons */
+.resource-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.resource-grid .person-card {
+    flex: 0 1 250px;
+}
+
+/* =========================================
+   Responsive Design / Mobile Auto-Detect
+   ========================================= */
+
+/* Tablets and smaller PCs */
+@media screen and (max-width: 992px) {
+    .grid-2, .grid-3, .grid-4, .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* Mobile Phones */
+@media screen and (max-width: 768px) {
+    /* Navbar adjustments */
+    .nav-links {
+        gap: 10px;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    /* Typography & Spacing */
+    .hero h1 { 
+        font-size: 2.2rem; 
+    }
+    .hero p { 
+        font-size: 1rem; 
+    }
+    .section-padding { 
+        padding: 50px 0; 
+    }
+    .section-title-wrapper h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Committees and Inner Grids */
+    .advisory-inner-grid {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 15px;
+    }
+    
+    .advisory-item {
+        border-right: none !important;
+        border-bottom: 1px solid #ccc;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        padding-bottom: 15px !important;
+    }
+    
+    /* Ensure last item doesn't have a border */
+    .advisory-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0 !important;
+    }
+    
+    .committee-single-card {
+        padding: 25px 20px !important;
+    }
+    
+    /* Images */
+    .person-image {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    /* General Container Fixes */
+    .container {
+        padding: 0 15px;
     }
 }
