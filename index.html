@@ -18,6 +18,16 @@
 
 <body>
 
+    <!-- Splash Screen Intro -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <h1 class="splash-title">ICKACS 2K26</h1>
+            <p class="splash-subtitle">International Conference</p>
+            <p style="color: #fff; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;">"Welcome on behalf of Department of Computer Science"</p>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+
     <!-- Top Header -->
     <header class="top-header">
         <div class="header-container">
@@ -705,6 +715,22 @@
         </div>
     </footer>
 
+    <!-- Splash Screen JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const splashScreen = document.getElementById('splash-screen');
+            if (splashScreen) {
+                // Wait 2 seconds, then slide up for 1 second
+                setTimeout(() => {
+                    splashScreen.classList.add('slide-up');
+                    // Remove from DOM after slide transition completes
+                    setTimeout(() => {
+                        splashScreen.style.display = 'none';
+                    }, 1000);
+                }, 2000);
+            }
+        });
+    </script>
 </body>
 
 </html>
